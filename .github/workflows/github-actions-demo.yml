@@ -12,3 +12,10 @@ jobs:
         with:
           args: --severity-threshold=high --print-deps
           command: test
+      - name: Run Snyk to check for vulnerabilities
+        uses: lukas-spread/actions/golang@test
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high --print-deps
+          command: test
